@@ -1,4 +1,4 @@
-package entity;
+package com.temelt.issuemanagement.entity;
 
 import lombok.*;
 
@@ -28,12 +28,16 @@ public class Issue extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column(name = "description")
+    @Column(name = "issue_status")
     @Enumerated(EnumType.STRING)
     private IssueStatus issueStatus;
 
     @JoinColumn(name = "assignee_user_id")
-    @ManyToOne(optional = true, fetch = FetchType.LAZY) //birçok issue class bir tane user a bağlanabilir.optional: atama omasa da olur. lazy:istenildği zaman mı select yapılsın yoksa herzaman mı.
+    @ManyToOne(optional = true, fetch = FetchType.LAZY) //birçok issue class bir tane user a bağlanabilir.optional: atama olmasa da olur. lazy:istenildği zaman mı select yapılsın yoksa herzaman mı.
     private User assignee;
+
+    @JoinColumn(name = "project_id")
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    private Project project;
 
 }

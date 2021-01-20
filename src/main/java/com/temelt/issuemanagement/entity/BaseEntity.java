@@ -1,6 +1,5 @@
-package entity;
+package com.temelt.issuemanagement.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,4 +1,4 @@
-package entity;
+package com.temelt.issuemanagement.entity;
 
 import lombok.*;
 
